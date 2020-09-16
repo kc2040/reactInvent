@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { Container } from 'semantic-ui-react';
+import RateDashboard from '../../features/events/eventDashboard/rateDashboard';
+import NavBar from '../../features/events/nav/NavBar';
 
 
-function App() {
+export default function App() {
+  const [formOpen, setFormOpen] = useState(false);
+    
   return (
-    <div className="App">
-      <h1>Invent</h1>
-    </div>
+    <>
+      <NavBar setFormOpen={setFormOpen}></NavBar>
+      <h1>Rate Cards</h1>
+      <Container className='main'>
+        <RateDashboard formOpen={formOpen}  setFormOpen={setFormOpen}/>
+      </Container>
+        
+    </>
   );
 }
 
-export default App;
+
